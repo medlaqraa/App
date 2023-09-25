@@ -20,7 +20,6 @@ export default function Login() {
             <button className='btn btn-success w-100'>Login</button>
             <p>You are agree to our terms and policies</p>
             <Link to='/signup' className='btn btn-default border w-100 bg-light text-decoration-none'>Create Account</Link>
-            <Link to='/signup' className='btn btn-default border w-100 bg-light text-decoration-none'>Create Account</Link>
         </form>
       </div>
     </div>
