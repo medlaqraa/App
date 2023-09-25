@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Prev } from 'react-bootstrap/esm/PageItem';
 import { Link } from 'react-router-dom'
+import LoginValidation from './LoginValidation';
 
 export default function Login() {
 
@@ -9,8 +10,13 @@ export default function Login() {
     password :'',
   })
 
+  const [errors , setErrors] = useState({
+
+  })
+
   const handleSubmit =(event) => {
     event.preventDefault();
+    setErrors(LoginValidation(values));
   }
 
   const handleInput = (event) => {
@@ -25,12 +31,13 @@ export default function Login() {
             <div className='mb-3'>
                 <label htmlFor="email"><strong>Email</strong></label>
                 <input type="email" onChange={handleInput} name='email' placeholder='Enter Your Email' className='form-control rounded-0'/>
+                <span>{errors.email && <span className='text-danger'>{errors.email}</span>}</span>
             </div>
             
             <div className='mb-3'>
                 <label htmlFor="password"><strong>Password</strong></label>
-                <input type="email" onChange={handleInput} name='password' placeholder='Enter Your Email' className='form-control rounded-0'/>
-                <input type="password"  placeholder='Enter Your Password' className='form-control rounded-0'/>
+                <input type="password" onChange={handleInput} name='password'  placeholder='Enter Your Password' className='form-control rounded-0'/>
+                <span>{errors.password && <span className='text-danger'>{errors.password}</span>}</span>
             </div>
 
             <button type='submit' className='btn btn-success w-100'>Login</button>
