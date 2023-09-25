@@ -17,6 +17,9 @@ export default function Signup() {
   const handleSubmit =(event) => {
     event.preventDefault();
     setErrors(signupValidation(values));
+    if(errors.name === "" && errors.email === "" && errors.password === ""){
+      
+    }
   }
 
   const handleInput = (event) => {
