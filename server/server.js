@@ -3,7 +3,8 @@ const mysql = require('mysql');
 const cors = require('cors');
 
 const app = express();
-app.use(cors);
+app.use(cors());
+app.use(express.json());
 
 const db = mysql.createConnection({
     host: 'localhost',
@@ -13,7 +14,7 @@ const db = mysql.createConnection({
 })
 
 app.post('/reactphp', (req, res) => {
-    const sql = 'INSERT INTO LOGIN (`name`, `email`, `password`) VALUES (?)';
+    const sql = 'INSERT INTO login (`name`, `email`, `password`) VALUES (?)';
     const values = [
         req.body.name,
         req.body.email,
@@ -27,6 +28,6 @@ app.post('/reactphp', (req, res) => {
     })
 })
 
-app.listen(8081, () =>{
-    console.log('listening ');
+app.listen(8081, () => {
+    console.log('listening');
 })
