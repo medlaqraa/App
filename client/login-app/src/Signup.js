@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 import signupValidation from './signupValidation'
 
 export default function Signup() {
@@ -18,7 +19,7 @@ export default function Signup() {
     event.preventDefault();
     setErrors(signupValidation(values));
     if(errors.name === "" && errors.email === "" && errors.password === ""){
-      
+      axios.post()
     }
   }
 
